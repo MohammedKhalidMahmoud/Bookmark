@@ -3,9 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./src/output.css">
+    <link rel="stylesheet" href="./assets/css/all.min.css">
     <title>Document</title>
 </head>
 <body>
-    
+
+    <!-- ::before{
+        content:'';
+        position:absolute;
+        top:50%;
+        left:50%
+        width:20px;
+        height:20px;
+        background-color:red;
+    } -->
+    <div class="p-12 border-dotted border-b-2 mx-10">
+        <h1 class="inline-block text-3xl font-bold relative left-1/2 -translate-x-1/2 before:content-[''] before:absolute before:top-full before:left-0 before:w-full before:h-2 before:bg-amber-300 transition-all duration-300 group-hover:before:h-full ">Bookmarker</h1>
+    </div>
+    <div class="my-4 p-6 w-3/4 mx-auto border-dotted border-b-2">
+        <h3 class="text-xl font-bold text-center"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i class="fa-solid fa-bookmark"></i></h3>
+        <form action="" class="my-10">
+            <label for=""><i class="fa-solid fa-book-bookmark pe-2 block"></i> Site Name</label>
+            <input type="text" placeholder="Site URL" class="w-full  my-4 p-3 block border border-gray-300 rounded-lg"/>
+            <label for=""><i class="fa-solid fa-link pe-2"></i> Site Name</label>
+            <input type="text" placeholder="Site URL" class="w-full  my-4 p-3 block border border-gray-300 rounded-lg"/>
+            <div class="text-center">
+            <button class="text-white font-semibold px-6 py-2 bg-amber-600 rounded-lg ">Submit</button>
+
+            </div>
+        </form>
+
+
+    </div>
+    <div>
+        <table class="w-3/4 mx-auto bg-white">
+            <tr>
+                <th class="text-center">Index</th>
+                <th class="text-center">Website Name</th>
+                <th class="text-center">Visit</th>
+                <th class="text-center">Delete</th>
+            </tr>
+            <tr>
+                <td class="text-center w-1/6"></td>
+                <td class="text-center w-3/6"></td>
+                <td class="text-center w-1/6"> <button class="bg-lime-400 px-4 py-2 text-white rounded-lg font-semibold"><i class="fa-solid fa-trash-can"></i> Update</button> </td>
+                <td class="text-center w-1/6 ">  <button class="bg-red-600 px-4 py-2 text-white rounded-lg font-semibold"><i class="fa-solid fa-trash-can"></i> Delete</button> </td>
+            </tr>
+        </table>
+    </div>
+    <!-- <div class="w-1/2 relative left-1/2 transform -translate-x-1/2 bg-black h-20">ddd</div> -->
 </body>
 </html>

@@ -44,15 +44,15 @@ url_input_field.addEventListener('input',(e)=>{
 
     if(url_regex.test(e.target.value)){
         // console.log("Hello")
-        name_input_field.classList.replace("focus:border-red-300","focus:border-amber-300")
-        name_input_field.classList.replace("focus:shadow-red-200","focus:shadow-amber-200")
-        name_input_field.classList.replace("focus:ring-red-200","focus:ring-amber-200")
-        // console.log(name_input_field.classList)
+        url_input_field.classList.replace("focus:border-red-300","focus:border-amber-300")
+        url_input_field.classList.replace("focus:shadow-red-200","focus:shadow-amber-200")
+        url_input_field.classList.replace("focus:ring-red-200","focus:ring-amber-200")
+        // console.log(url_input_field.classList)
     }
     else{
-        name_input_field.classList.replace("focus:border-amber-300","focus:border-red-300")
-        name_input_field.classList.replace("focus:shadow-amber-200","focus:shadow-red-200")
-        name_input_field.classList.replace("focus:ring-amber-200","focus:ring-red-200")
+        url_input_field.classList.replace("focus:border-amber-300","focus:border-red-300")
+        url_input_field.classList.replace("focus:shadow-amber-200","focus:shadow-red-200")
+        url_input_field.classList.replace("focus:ring-amber-200","focus:ring-red-200")
     }
 })
 let cartona = `<tr>

@@ -1,16 +1,22 @@
 const name_input_field=document.querySelector('#input_1');
 const url_input_field=document.querySelector('#input_2');
 const btn=document.querySelector('#btn');
-
+const layer=document.querySelector('.layer');
+const modal=document.querySelector('.modal');
 // console.log(name_input_field);
 // console.log(url_input_field);
 // console.log(btn);
 
+function modal_toggle(){
+    modal.classList.toggle('hidden');
+    layer.classList.toggle('hidden');
+}
 
 btn.addEventListener('click', (e)=>{
-    e.preventDefault();
-    console.log(name_input_field.value);
-    console.log(url_input_field.value);
+    e.preventDefault();    
+    layer.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
+    modal_toggle();
+    layer.addEventListener('click', modal_toggle);
 })
 
 // regex Implementation

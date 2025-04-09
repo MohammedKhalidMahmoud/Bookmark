@@ -12,18 +12,25 @@
     
     <script defer src="./script.js"></script>
     <title>Document</title>
+    <style>
+        div{
+            /* display:absolute;
+            left:50%;
+            top:50%; */
+            /* margin-top:20px;
+            margin-left:10px;
+            height:20px;
+            width:20px;
+            border-radius:100%; */
+        }
+    </style>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 <body class="">
 
-    <!-- ::before{
-        content:'';
-        position:absolute;
-        top:50%;
-        left:50%
-        width:20px;
-        height:20px;
-        background-color:red;
-    } -->
+    <!-- <div class="mt-20 ml-20 w-20 h-20  bg-red-500"></div> -->
+    
+    
     <div class="p-12 border-dotted border-b-2 mx-10">
         <h1 class="inline-block text-3xl font-bold relative left-1/2 -translate-x-1/2 before:content-[''] before:absolute before:bottom-0.5 before:-z-1 before:left-0 before:w-full before:h-[30%] before:bg-[#fec260] before:transition-all before:duration-500 hover:before:h-[80%] ">
         Bookmarker
@@ -64,13 +71,10 @@
             </tr>
         </table>
     </div>
-    <div class="red-circle w-5 h-5 rounded-circle bg-red-600"></div>
 
-    <div class="modal">
-        ssssssssssssssssss
-        <div class="red-circle inline-block w-5 h-2 rounded-full bg-red-600">ssssssssssssss</div>
-        <div class="red-circle w-2 h-2 rounded-circle bg-red-600"></div>
-    </div>
+    
+    
+    
     <!-- <button
     onclick="window.location.href='https://facebook.com';"
     class="px-6 py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
@@ -78,5 +82,21 @@
     Go to Facebook.com
   </button> -->
     <!-- <div class="w-1/2 relative left-1/2 transform -translate-x-1/2 bg-black h-20">ddd</div> -->
+    <div class="layer hidden absolute top-0 left-0 right-0 bottom-0 bg-[rgba(0,0,0,0.6)] "></div>
+    <div class="modal rounded-xl hidden  p-10 absolute left-1/2  top-1/2 -translate-1/2  bg-white">
+        <div class="flex justify-between mb-6">
+            
+            <div class="flex gap-x-1">
+                <div class="red-circle w-5 h-5 rounded-full bg-red-600"></div>
+                <div class="yellow-circle w-5 h-5 rounded-full bg-yellow-600"></div>
+                <div class="green-circle w-5 h-5 rounded-full bg-green-600"></div>
+            </div>
+            <div>place holder</div>
+        </div>
+        <h3 class="text-2xl font-semibold mb-4 ">Site Name or Url is not valid, Please follow the rules below :</h3>
+        <p class="text-xl "><i class="fa-regular fa-circle-right p-2 text-red-700 "></i> Site name must contain at least 3 characters</p>
+        <p class="text-xl"><i class="fa-regular fa-circle-right p-2 text-red-700 "></i> Site URL must be a valid one</p>
+    
+    </div>
 </body>
 </html>

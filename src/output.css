@@ -24,6 +24,9 @@
     --color-amber-600: oklch(66.6% 0.179 58.318);
     --color-yellow-600: oklch(68.1% 0.162 75.834);
     --color-lime-400: oklch(84.1% 0.238 128.85);
+    --color-green-200: oklch(92.5% 0.084 155.995);
+    --color-green-300: oklch(87.1% 0.15 154.449);
+    --color-green-400: oklch(79.2% 0.209 151.711);
     --color-green-600: oklch(62.7% 0.194 149.214);
     --color-blue-600: oklch(54.6% 0.245 262.881);
     --color-blue-700: oklch(48.8% 0.243 264.376);
@@ -677,9 +680,30 @@
       }
     }
   }
+  .focus\:border-r-300 {
+    &:focus {
+      border-right-style: var(--tw-border-style);
+      border-right-width: 300px;
+    }
+  }
   .focus\:border-amber-300 {
     &:focus {
       border-color: var(--color-amber-300);
+    }
+  }
+  .focus\:border-green-200 {
+    &:focus {
+      border-color: var(--color-green-200);
+    }
+  }
+  .focus\:border-green-300 {
+    &:focus {
+      border-color: var(--color-green-300);
+    }
+  }
+  .focus\:border-green-400 {
+    &:focus {
+      border-color: var(--color-green-400);
     }
   }
   .focus\:border-red-300 {
@@ -701,6 +725,30 @@
       }
     }
   }
+  .focus\:shadow-green-200 {
+    &:focus {
+      --tw-shadow-color: oklch(92.5% 0.084 155.995);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-shadow-color: color-mix(in oklab, var(--color-green-200) var(--tw-shadow-alpha), transparent);
+      }
+    }
+  }
+  .focus\:shadow-green-300 {
+    &:focus {
+      --tw-shadow-color: oklch(87.1% 0.15 154.449);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-shadow-color: color-mix(in oklab, var(--color-green-300) var(--tw-shadow-alpha), transparent);
+      }
+    }
+  }
+  .focus\:shadow-green-400 {
+    &:focus {
+      --tw-shadow-color: oklch(79.2% 0.209 151.711);
+      @supports (color: color-mix(in lab, red, red)) {
+        --tw-shadow-color: color-mix(in oklab, var(--color-green-400) var(--tw-shadow-alpha), transparent);
+      }
+    }
+  }
   .focus\:shadow-red-200 {
     &:focus {
       --tw-shadow-color: oklch(88.5% 0.062 18.334);
@@ -712,6 +760,21 @@
   .focus\:ring-amber-200 {
     &:focus {
       --tw-ring-color: var(--color-amber-200);
+    }
+  }
+  .focus\:ring-green-200 {
+    &:focus {
+      --tw-ring-color: var(--color-green-200);
+    }
+  }
+  .focus\:ring-green-300 {
+    &:focus {
+      --tw-ring-color: var(--color-green-300);
+    }
+  }
+  .focus\:ring-green-400 {
+    &:focus {
+      --tw-ring-color: var(--color-green-400);
     }
   }
   .focus\:ring-red-200 {

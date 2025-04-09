@@ -42,36 +42,42 @@ name_input_field.addEventListener('input',(e)=>{
 
     if(name_regex.test(e.target.value)){
         // console.log("Hello")
-        name_input_field.classList.replace("focus:border-red-300","focus:border-amber-300")
-        name_input_field.classList.replace("focus:shadow-red-200","focus:shadow-amber-200")
-        name_input_field.classList.replace("focus:ring-red-200","focus:ring-amber-200")
+        name_input_field.classList.replace("focus:border-red-300","focus:border-green-300")
+        name_input_field.classList.replace("focus:shadow-red-200","focus:shadow-green-300")
+        name_input_field.classList.replace("focus:ring-red-200","focus:ring-green-300")
         // console.log(name_input_field.classList)
     }
     else{
         name_input_field.classList.replace("focus:border-amber-300","focus:border-red-300")
         name_input_field.classList.replace("focus:shadow-amber-200","focus:shadow-red-200")
         name_input_field.classList.replace("focus:ring-amber-200","focus:ring-red-200")
+        name_input_field.classList.replace("focus:border-green-300","focus:border-red-300")
+        name_input_field.classList.replace("focus:shadow-green-300","focus:shadow-red-200")
+        name_input_field.classList.replace("focus:ring-green-300","focus:ring-red-200")
     }
 })
 
 url_input_field.addEventListener('input',(e)=>{
     
-    const url_regex = /\w{5}/;
+    const url_regex = /^\w+\.com$/;
     
     console.log(url_regex.test(e.target.value));
     // console.log(name_input_field.classList)
 
     if(url_regex.test(e.target.value)){
         // console.log("Hello")
-        url_input_field.classList.replace("focus:border-red-300","focus:border-amber-300")
-        url_input_field.classList.replace("focus:shadow-red-200","focus:shadow-amber-200")
-        url_input_field.classList.replace("focus:ring-red-200","focus:ring-amber-200")
+        url_input_field.classList.replace("focus:border-red-300","focus:border-green-300")
+        url_input_field.classList.replace("focus:shadow-red-200","focus:shadow-green-300")
+        url_input_field.classList.replace("focus:ring-red-200","focus:ring-green-300")
         // console.log(url_input_field.classList)
     }
     else{
         url_input_field.classList.replace("focus:border-amber-300","focus:border-red-300")
         url_input_field.classList.replace("focus:shadow-amber-200","focus:shadow-red-200")
         url_input_field.classList.replace("focus:ring-amber-200","focus:ring-red-200")
+        url_input_field.classList.replace("focus:border-green-300","focus:border-red-300")
+        url_input_field.classList.replace("focus:shadow-green-300","focus:shadow-red-200")
+        url_input_field.classList.replace("focus:ring-green-300","focus:ring-red-200")
     }
 })
 let cartona = `<tr>

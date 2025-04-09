@@ -3,6 +3,7 @@ const url_input_field=document.querySelector('#input_2');
 const btn=document.querySelector('#btn');
 const layer=document.querySelector('.layer');
 const modal=document.querySelector('.modal');
+const close_button=document.querySelector('#close_button');
 // console.log(name_input_field);
 // console.log(url_input_field);
 // console.log(btn);
@@ -11,12 +12,24 @@ function modal_toggle(){
     modal.classList.toggle('hidden');
     layer.classList.toggle('hidden');
 }
+function escListener(e) {
+    if (e.key === "Escape") {
+        modal_toggle();
+    }
+}
 
 btn.addEventListener('click', (e)=>{
+    
     e.preventDefault();    
-    layer.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
     modal_toggle();
+    layer.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
+    close_button.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
+    document.removeEventListener('keydown', escListener); // to clear the previous event listeners before attaching a new one
+
+    document.addEventListener('keydown', escListener);
+    close_button.addEventListener('click', modal_toggle);
     layer.addEventListener('click', modal_toggle);
+    
 })
 
 // regex Implementation

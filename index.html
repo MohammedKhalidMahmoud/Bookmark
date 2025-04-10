@@ -42,14 +42,18 @@
             
             <label for=""><i class="fa-solid fa-book-bookmark pe-2 block"></i> Site Name</label>
             <div class="relative">
-                <input id="input_1" type="text" placeholder="Bookmark Name" class="w-full rounded-lg my-4 p-3 block border border-gray-300 transition-all duration-300 focus:border-amber-300 focus:shadow-amber-300 focus:ring-2 focus:ring-amber-300 focus:outline-none"/>
-                <i class="fa-regular fa-circle-xmark text-red-600 absolute right-2 top-4"></i>
+                <input id="input_1" type="text" placeholder="Bookmark Name" class="w-full rounded-lg my-4 p-3 block border border-gray-300 transition-all duration-300 focus:border-amber-300 focus:shadow-amber-300 focus:ring-2 focus:ring-amber-300 focus:outline-none pr-10"/>
+                <div id="name_cross_mark" class="invisible bg-gray-200 absolute right-[1px] top-[1px] h-full flex items-center rounded-tr-lg rounded-br-lg px-2"><i class="fa-regular fa-circle-xmark text-red-600 text-xl "></i></div>
+                <div id="name_check_mark" class="invisible bg-gray-200 absolute right-[1px] top-[1px] h-full flex items-center rounded-tr-lg rounded-br-lg px-2"><i class="fa-regular fa-circle-check text-green-600 text-xl "></i></div>
             </div>
             <label for=""><i class="fa-solid fa-link pe-2"></i> Site URL</label>
-            <input id="input_2" type="text" placeholder="WebSite URL" class="w-full rounded-lg my-4 p-3 block border border-gray-300 transition-all duration-300 focus:border-amber-300 focus:shadow-amber-300 focus:ring-2 focus:ring-amber-300 focus:outline-none"/>
+            <div class="relative">
+                <input id="input_2" type="text" placeholder="WebSite URL" class="w-full rounded-lg my-4 p-3 block border border-gray-300 transition-all duration-300 focus:border-amber-300 focus:shadow-amber-300 focus:ring-2 focus:ring-amber-300 focus:outline-none"/>
+                <div id="url_cross_mark" class="invisible bg-gray-200 absolute right-[1px] top-[1px] h-full flex items-center rounded-tr-lg rounded-br-lg px-2"><i class="fa-regular fa-circle-xmark text-red-600 text-xl "></i></div>
+                <div id="url_check_mark" class="invisible bg-gray-200 absolute right-[1px] top-[1px] h-full flex items-center rounded-tr-lg rounded-br-lg px-2"><i class="fa-regular fa-circle-check text-green-600 text-xl "></i></div>
+            </div>
             <div class="text-center">
-            <button id="btn" class="text-white font-semibold px-6 py-2 bg-amber-500 rounded-lg crsor-pointer">Submit</button>
-
+                <button id="btn" class="text-white font-semibold px-6 py-2 bg-amber-500 rounded-lg crsor-pointer">Submit</button>
             </div>
         </form>
 

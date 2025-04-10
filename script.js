@@ -31,11 +31,8 @@ btn.addEventListener('click', (e)=>{
     else{
         modal_toggle();
         removeEventListeners();
-        addEventListeners();
-        
-    }  
-    
-    
+        addEventListeners();      
+    }       
 })
 
 function removeEventListeners(){
@@ -101,18 +98,14 @@ function validate_name(e){
 }
 // let index=1;
 let data=[];
-let cartona;
+let cartona='';
 function add(){
     if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value)){
         data.push({name:name_input_field.value, url:url_input_field.value})
         localStorage.setItem("data",JSON.stringify(data))
         display();
-        
-        // index++;
-        
         reset();
         afterAdd();     
-
     }
     
 }
@@ -120,10 +113,10 @@ function display(){
     data=JSON.parse(localStorage.getItem("data"));
     for(let i=0;i<data.length;i++){
         cartona += `<tr class="border-b border-gray-300 py-2 my-2 ">
-            <td class="text-center w-1/6">${i+1}</td>
-            <td class="text-center w-3/6">${data[i].name}</td>
-            <td class="text-center w-1/6"> <a class="bg-lime-400 px-4 py-2 text-white rounded-lg font-semibold" href="${data[i].url}" target="_blank"><i class="fa-solid fa-eye pe-2"></i>Visit</a> </td>
-            <td class="text-center w-1/6 m-2 p-2"> <button onclick="deleteRow(this)" class="bg-red-600 px-4 py-2 text-white rounded-lg font-semibold cursor-pointer"><i class="fa-solid fa-trash-can"></i> Delete</button> </td>
+            <td class="text-center ">${i+1}</td>
+            <td class="text-center ">${data[i].name}</td>
+            <td class="text-center "> <a class="bg-lime-400 px-4 py-2 text-white rounded-lg font-semibold" href="${data[i].url}" target="_blank"><i class="fa-solid fa-eye pe-2"></i>Visit</a> </td>
+            <td class="text-center  m-2 p-2"> <button onclick="deleteRow(this)" class="bg-red-600 px-4 py-2 text-white rounded-lg font-semibold cursor-pointer"><i class="fa-solid fa-trash-can"></i> Delete</button> </td>
         </tr>`;
         
         // data=[];

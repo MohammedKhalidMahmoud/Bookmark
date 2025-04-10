@@ -9,12 +9,7 @@ const name_cross_mark=document.querySelector('#name_cross_mark');
 const name_check_mark=document.querySelector('#name_check_mark');
 const url_cross_mark=document.querySelector('#url_cross_mark');
 const url_check_mark=document.querySelector('#url_check_mark');
-// console.log(name_cross_mark);
-// console.log(name_check_mark);
-// console.log(table);
-// console.log(name_input_field);
-// console.log(url_input_field);
-// console.log(btn);
+
 
 function modal_toggle(){
     modal.classList.toggle('hidden');
@@ -30,43 +25,41 @@ function reset(){
     url_input_field.value='';
 }
 btn.addEventListener('click', (e)=>{
-    e.preventDefault();
+    e.preventDefault();   // to prevent default behavior (reload)
     if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value))
         add();
     else{
         modal_toggle();
-    layer.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
-    close_button.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
-    document.removeEventListener('keydown', escListener); // to clear the previous event listeners before attaching a new one
-
-    document.addEventListener('keydown', escListener);
-    close_button.addEventListener('click', modal_toggle);
-    layer.addEventListener('click', modal_toggle);
+        removeEventListeners();
+        addEventListeners();
+        
     }  
     
     
 })
+
+function removeEventListeners(){
+    layer.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
+    close_button.removeEventListener('click', modal_toggle);  // to clear the previous event listeners before attaching a new one
+    document.removeEventListener('keydown', escListener); // to clear the previous event listeners before attaching a new one
+
+}
+function addEventListeners(){
+    document.addEventListener('keydown', escListener);
+    close_button.addEventListener('click', modal_toggle);
+    layer.addEventListener('click', modal_toggle);
+}
 const name_regex = /\w{5}/;
 const url_regex = /^\w+\.com$/;
 // regex Implementation
 name_input_field.addEventListener('input',(e)=>{
-    
-    
-    
-    console.log(name_regex.test(e.target.value));
-    // console.log(name_input_field.classList)
-
+    // console.log(name_regex.test(e.target.value));
     validate_name(e);
 })
 
 url_input_field.addEventListener('input',(e)=>{
-    
-   
-    
-    console.log(url_regex.test(e.target.value));
-    // console.log(name_input_field.classList)
+    // console.log(url_regex.test(e.target.value));
     validate_url(e);
-    
 })
 
 function validate_url(e){
@@ -74,8 +67,8 @@ function validate_url(e){
         // console.log("Hello")
         url_check_mark.classList.remove('invisible')
         url_cross_mark.classList.add('invisible')
-       url_input_field.classList.remove("focus:border-red-300","focus:shadow-red-300","focus:ring-red-300")
-       url_input_field.classList.add("focus:border-green-300","focus:shadow-green-300","focus:ring-green-300")
+        url_input_field.classList.remove("focus:border-red-300","focus:shadow-red-300","focus:ring-red-300")
+        url_input_field.classList.add("focus:border-green-300","focus:shadow-green-300","focus:ring-green-300")
   
         // console.log(url_input_field.classList)
     }
@@ -118,6 +111,23 @@ function add(){
         index++;
         table.insertAdjacentHTML('beforeend', cartona);
         reset();
+        afterAdd();     
+
     }
+    
+}
+
+function afterAdd(){
+    name_input_field.classList.remove('focus:border-green-300','focus:shadow-green-300','focus:ring-green-300')
+    url_input_field.classList.remove('focus:border-green-300','focus:shadow-green-300','focus:ring-green-300')
+    name_input_field.classList.add('focus:border-amber-300','focus:shadow-amber-300','focus:ring-amber-300')
+    url_input_field.classList.add('focus:border-amber-300','focus:shadow-amber-300','focus:ring-amber-300')
+    name_check_mark.classList.add("invisible");
+    url_check_mark.classList.add("invisible");
+}
+
+
+function _delete(e){
+    console.log("Dlete");
     
 }

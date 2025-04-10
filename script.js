@@ -4,7 +4,7 @@ const btn=document.querySelector('#btn');
 const layer=document.querySelector('.layer');
 const modal=document.querySelector('.modal');
 const close_button=document.querySelector('#close_button');
-const table=document.querySelector('table');
+const table=document.querySelector('#tbody');
 const name_cross_mark=document.querySelector('#name_cross_mark');
 const name_check_mark=document.querySelector('#name_check_mark');
 const url_cross_mark=document.querySelector('#url_cross_mark');
@@ -99,24 +99,40 @@ function validate_name(e){
         
     }
 }
-let index=1;
+// let index=1;
+let data=[];
+let cartona;
 function add(){
     if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value)){
-        let cartona = `<tr class="border-bottom border-gray-300 py-2 my-2 ">
-                <td class="text-center w-1/6">${index}</td>
-                <td class="text-center w-3/6">${name_input_field.value}</td>
-                <td class="text-center w-1/6"> <a class="bg-lime-400 px-4 py-2 text-white rounded-lg font-semibold" href="${url_input_field.value}" target="_blank"><i class="fa-solid fa-eye pe-2"></i>Visit</a> </td>
-                <td class="text-center w-1/6"> <button class="bg-red-600 px-4 py-2 text-white rounded-lg font-semibold cursor-pointer"><i class="fa-solid fa-trash-can"></i> Delete</button> </td>
-            </tr>`;
-        index++;
-        table.insertAdjacentHTML('beforeend', cartona);
+        data.push({name:name_input_field.value, url:url_input_field.value})
+        localStorage.setItem("data",JSON.stringify(data))
+        display();
+        
+        // index++;
+        
         reset();
         afterAdd();     
 
     }
     
 }
-
+function display(){
+    data=JSON.parse(localStorage.getItem("data"));
+    for(let i=0;i<data.length;i++){
+        cartona += `<tr class="border-bottom border-gray-300 py-2 my-2 ">
+            <td class="text-center w-1/6">${i+1}</td>
+            <td class="text-center w-3/6">${data[i].name}</td>
+            <td class="text-center w-1/6"> <a class="bg-lime-400 px-4 py-2 text-white rounded-lg font-semibold" href="${data[i].url}" target="_blank"><i class="fa-solid fa-eye pe-2"></i>Visit</a> </td>
+            <td class="text-center w-1/6"> <button onclick="deleteRow(this)" class="bg-red-600 px-4 py-2 text-white rounded-lg font-semibold cursor-pointer"><i class="fa-solid fa-trash-can"></i> Delete</button> </td>
+        </tr>`;
+        
+        // data=[];
+    }
+    table.innerHTML= cartona;
+   
+    cartona='';
+}
+display();
 function afterAdd(){
     name_input_field.classList.remove('focus:border-green-300','focus:shadow-green-300','focus:ring-green-300')
     url_input_field.classList.remove('focus:border-green-300','focus:shadow-green-300','focus:ring-green-300')
@@ -127,7 +143,16 @@ function afterAdd(){
 }
 
 
-function _delete(e){
-    console.log("Dlete");
-    
+function deleteRow(button) {
+    // Get the row element that contains the button
+    const row = button.closest('tr');
+
+    // Get the index of the row (first cell contains the row number)
+    const rowIndex = parseInt(row.children[0].textContent) - 1;
+
+    // Remove the item from the data array
+    data.splice(rowIndex, 1);
+    localStorage.setItem("data",JSON.stringify(data))
+    // Re-display the updated table
+    display();
 }

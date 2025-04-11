@@ -26,8 +26,11 @@ function reset(){
 }
 btn.addEventListener('click', (e)=>{
     e.preventDefault();   // to prevent default behavior (reload)
-    if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value))
+    if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value)){
+        console.log("Hello");
         add();
+    }
+       
     else{
         modal_toggle();
         removeEventListeners();
@@ -101,7 +104,9 @@ let data=[];
 let cartona='';
 function add(){
     if(name_regex.test(name_input_field.value) && url_regex.test(url_input_field.value)){
-        data.push({name:name_input_field.value, url:url_input_field.value})
+        var newUrl = {name:name_input_field.value, url:url_input_field.value}
+    // data.push({name:name_input_field.value, url:url_input_field.value})
+    data.push(newUrl)
         localStorage.setItem("data",JSON.stringify(data))
         display();
         reset();
@@ -110,7 +115,7 @@ function add(){
     
 }
 function display(){
-    data=JSON.parse(localStorage.getItem("data"));
+    data=JSON.parse(localStorage.getItem("data"))||[];
     for(let i=0;i<data.length;i++){
         cartona += `<tr class="border-b border-gray-300 py-2 my-2 ">
             <td class="text-center ">${i+1}</td>

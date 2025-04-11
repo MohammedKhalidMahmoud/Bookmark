@@ -49,7 +49,7 @@ function addEventListeners(){
     close_button.addEventListener('click', modal_toggle);
     layer.addEventListener('click', modal_toggle);
 }
-const name_regex = /\w{5}/;
+const name_regex = /\w{3}/;
 const url_regex = /^\w+\.com$/;
 // regex Implementation
 name_input_field.addEventListener('input',(e)=>{
